@@ -5,6 +5,7 @@ body {
 
 }
 
+
 .yellowborder {
   position: absolute;
 
@@ -67,7 +68,7 @@ body {
   color: #fff;
   display: block;
   transition: .3s background-color;
-  
+
 
 }
 
@@ -152,8 +153,19 @@ body {
   margin-left: 225px;
 }
 
+.middlep{
+    width: 799px;
+
+
+
+}
+
+
+
+
 .blogimgs{
   width: 88%;
   height: auto;
   text-align: center;
 }
+
