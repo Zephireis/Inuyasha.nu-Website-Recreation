@@ -1,4 +1,4 @@
-# iInuyasha.nu Site Recreation
+# Inuyasha.nu Site Recreation
 https://zephireis.github.io/Inuyasha.nu-Website-Recreation/
 
 I recreated the front page of https://inuyasha.nu, a fan site in 2007 that I used to frequent in my early teens.
