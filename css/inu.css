@@ -96,11 +96,14 @@ body {
 
 
 
-.Header-top{
+.Header-top {
   position: relative;
   margin-top: 80px;
+  background-image: url('https://github.com/Zephireis/Inuyasha.nu-Website-Recreation/inyaheader.jpeg'); /* Replace with the actual path to your banner */
+  background-size: cover; /* This property will make the background image cover the entire container */
+  background-position: center; /* This property centers the background image */
+  height: 580px; /* Set the height to match the desired height of your banner */
 }
-
 .loginmod {
   position: absolute;
   border-style: solid;
