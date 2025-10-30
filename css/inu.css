@@ -7,7 +7,6 @@ body {
 /* --- Main Page Container --- */
 
 .yellowborder {
-    /* Use 'relative' positioning for the main container */
     position: relative;
     width: 70%; 
     min-height: 1200px;
@@ -88,6 +87,14 @@ body {
     margin-top: 0; 
 }
 
+.Header-top .header { /* TARGET THE IMAGE DIRECTLY */
+    width: 100%; /* Make the image responsive */
+    max-height: 250px; /* Set a maximum height to make it smaller */
+    object-fit: cover; /* Ensures the image covers the area nicely */
+    display: block; /* Helps with layout and removes extra space below the image */
+}
+
+
 /* --- Sidebar and Content Layout (Flexbox container) --- */
 
 .sidebar-and-content {
@@ -98,95 +105,16 @@ body {
     z-index: 1;
 }
 
-/* --- NEW: Sidebar Wrapper Column ---
-   This sets the width for the entire sidebar
-*/
+/* --- Sidebar Wrapper Column --- */
 .sidebar-column {
-    flex-basis: 250px; /* Fixed width for the entire sidebar column */
+    flex-basis: 250px; 
     flex-shrink: 0;
-    margin-right: 20px; /* Space between sidebar and main content */
+    margin-right: 20px; 
     display: flex;
-    flex-direction: column; /* Stacks children (.loginmod, .Chat) vertically */
+    flex-direction: column; 
 }
-
 
 /* --- Login Panel (.loginmod) & ChatterBox (.Chat) - STACKED ELEMENTS --- */
 
 .loginmod {
-    position: static; 
-    border-style: solid;
-    border-color: #e6e7e0;
-    border-width: 1px;
-    margin-top: 0;
-    margin-right: 0; /* Ensures it fills 100% of .sidebar-column */
-    box-sizing: border-box; 
-    background-color: #f7f7f7;
-}
-
-.Loginlabel {
-    display: block; 
-    width: auto; 
-    background-color: #89c0d7;
-    margin: 5px;
-    padding: 5px 5px 5px 10px;
-    color: white;
-    font-weight: bold;
-}
-
-.Chat {
-    position: static; 
-    border-style: solid;
-    border-color: #e6e7e0;
-    border-width: 1px;
-    /* This margin now only controls vertical spacing between boxes */
-    margin-top: 15px; 
-    height: 400px;
-    background-color: #f7f7f7;
-    margin-right: 0; /* Ensures it fills 100% of .sidebar-column */
-}
-
-.ChatterBox {
-    display: block;
-    width: auto;
-    background-color: #7c9d12;
-    margin: 5px;
-    padding: 5px 5px 5px 10px;
-    color: white;
-    font-weight: bold;
-}
-
-
-/* --- Blog/Main Content (.Blog) --- */
-
-.Blog {
-    position: relative;
-    flex-grow: 1; /* Allows the blog content to take up the remaining space */
-    margin-top: 0;
-    margin-left: 0;
-    text-align: left;
-}
-
-.middlep {
-    max-width: 100%; 
-}
-
-.blogimgs {
-    width: 100%; 
-    height: auto;
-    display: block; 
-}
-
-
-/* --- Media Query for Navigation (Desktop view) --- */
-
-@media screen and (min-width: 600px) {
-    .nav li {
-        width: 120px;
-        border-bottom: none;
-        height: 50px;
-        line-height: 50px;
-        font-size: 1.4em;
-        display: inline-block; 
-        margin-right: -4px;
-    }
-}
+    position: static;
