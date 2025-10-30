@@ -87,34 +87,10 @@ body {
     margin-top: 0; 
 }
 
-.Header-top .header { /* TARGET THE IMAGE DIRECTLY */
-    width: 100%; /* Make the image responsive */
-    max-height: 250px; /* Set a maximum height to make it smaller */
-    object-fit: cover; /* Ensures the image covers the area nicely */
-    display: block; /* Helps with layout and removes extra space below the image */
-}
+.Header-top .header { 
+    width: 100%;       
+    height: 200px;     /* FORCED HEIGHT */
+    max-height: 250px; 
+    object-fit: cover; 
+    display: block
 
-
-/* --- Sidebar and Content Layout (Flexbox container) --- */
-
-.sidebar-and-content {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap; 
-    margin-top: 20px;
-    z-index: 1;
-}
-
-/* --- Sidebar Wrapper Column --- */
-.sidebar-column {
-    flex-basis: 250px; 
-    flex-shrink: 0;
-    margin-right: 20px; 
-    display: flex;
-    flex-direction: column; 
-}
-
-/* --- Login Panel (.loginmod) & ChatterBox (.Chat) - STACKED ELEMENTS --- */
-
-.loginmod {
-    position: static;
