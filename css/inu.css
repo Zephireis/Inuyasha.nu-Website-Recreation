@@ -1,96 +1,170 @@
-/* --- Global & Body Styles --- */
-
 body {
-    background-color: #7c9d12;
+  background-color: #7c9d12;
+
+
+
 }
 
-/* --- Main Page Container --- */
 
 .yellowborder {
-    position: relative;
-    width: 70%; 
-    min-height: 1200px;
-    margin-left: 15%; 
-    margin-right: 15%;
-    margin-top: 50px;
-    padding: 20px;
-    border-style: solid;
-    border-color: #ccd90c;
-    border-width: 10px;
-}
+  position: absolute;
 
-/* --- Background Layer --- */
+  border-style: solid;
+  border-color: #ccd90c;
+  margin-left: 15%;
+  padding: 20px 20px 100% 20px;
+  margin-top: 50px;
+
+  border-width: 10px
+
+
+}
 
 .homepage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: white;
-    width: 100%;
-    height: 100%;
-    border-style: solid;
-    border-color: #7c9d12;
-    border-width: 5px;
-    z-index: 0; 
+  position:absolute;
+  top:0px;
+  left:0px;
+  background: white;
+  width: 100%;
+  height:100%;
+  border-style: solid;
+  border-color: #7c9d12;
+  border-width: 5px;
 }
 
-/* --- Utility Class --- */
 
 .wee {
-    display: block; 
-    margin-left: 8px;
-    margin-bottom: 5px;
+  margin-left: 8px
 }
 
-/* --- Navigation Bar --- */
-
 .nav {
-    position: relative; 
+  position: absolute;
+  z-index: 1;
+
+
 }
 
 .nav ul {
-    list-style: none;
-    background-color: #91c1d6;
-    text-align: center;
-    padding: 0;
-    padding-top: 5px;
-    opacity: 0.9;
-    display: flex; 
-    justify-content: center; 
-}
+  list-style: none;
+  background-color: #91c1d6;
+  text-align: center;
+  padding: 0;
+  margin-left:876px;
+  padding-top: 100px;
+  opacity: 0.9
 
+}
 .nav li {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2em;
-    line-height: 40px;
-    height: 40px; 
-    border-bottom: 1px solid #888;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 80px;
+  border-bottom: 1px solid #888;
+
 }
 
 .nav a {
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    transition: .3s background-color;
-    padding: 0 15px; 
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+
+
 }
 
 .nav a:hover {
-    background-color: #005f5f;
+  background-color: #005f5f;
 }
 
-/* --- Header Image (Banner) --- */
+
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+
+
+
 
 .Header-top {
-    position: relative;
-    height: auto; 
-    margin-top: 0; 
+  position: relative;
+  margin-top: 80px;
+  background-image: url('https://github.com/Zephireis/Inuyasha.nu-Website-Recreation/inyaheader.jpeg'); /* Replace with the actual path to your banner */
+  background-size: cover; /* This property will make the background image cover the entire container */
+  background-position: center; /* This property centers the background image */
+  height: 580px; /* Set the height to match the desired height of your banner */
+}
+.loginmod {
+  position: absolute;
+  border-style: solid;
+  border-color: #e6e7e0;
+  border-width: 1px;
+
+  margin-top: 15px;
 }
 
-.Header-top .header { 
-    width: 100%;       
-    height: 200px;     /* FORCED HEIGHT */
-    max-height: 250px; 
-    object-fit: cover; 
-    display: block
+.Loginlabel {
+  width: 200px;
+  background-color: #89c0d7;
 
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 5px 5px 5px 10px;
+  color: white;
+  font-weight: bold;
+}
+
+
+.Chat {
+  position: absolute;
+  border-style: solid;
+  border-color: #e6e7e0;
+  border-width: 1px;
+  margin-left: 1065px;
+  margin-top: 15px;
+  height: 400px;
+}
+
+.ChatterBox {
+  width: 200px;
+  background-color: #7c9d12;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 5px 5px 5px 10px;
+  color: white;
+  font-weight: bold;
+
+}
+
+
+.Blog {
+  position: relative;
+  margin-top: 80px;
+  text-align: left;
+  margin-left: 225px;
+}
+
+.middlep {
+  width:799px;
+}
+
+
+
+
+.blogimgs{
+  width: 88%;
+  height: auto;
+  text-align: center;
+}
