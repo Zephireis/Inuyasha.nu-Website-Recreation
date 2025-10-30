@@ -1,170 +1,198 @@
+/* --- Global & Body Styles --- */
+
 body {
-  background-color: #7c9d12;
-
-
-
+    background-color: #7c9d12;
 }
 
+/* --- Main Page Container --- */
 
 .yellowborder {
-  position: absolute;
-
-  border-style: solid;
-  border-color: #ccd90c;
-  margin-left: 15%;
-  padding: 20px 20px 100% 20px;
-  margin-top: 50px;
-
-  border-width: 10px
-
-
+    /* Use 'relative' positioning for the main container 
+       so absolute elements (like .homepage) are relative to it */
+    position: relative;
+    width: 70%; /* Set a controlled width for the main content area */
+    min-height: 1200px; /* Use min-height instead of 100% padding */
+    margin-left: 15%; /* Center the block */
+    margin-right: 15%;
+    margin-top: 50px;
+    padding: 20px;
+    border-style: solid;
+    border-color: #ccd90c;
+    border-width: 10px;
 }
+
+/* --- Background Layer --- */
 
 .homepage {
-  position:absolute;
-  top:0px;
-  left:0px;
-  background: white;
-  width: 100%;
-  height:100%;
-  border-style: solid;
-  border-color: #7c9d12;
-  border-width: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-color: #7c9d12;
+    border-width: 5px;
+    z-index: 0; /* Ensures it stays behind all content */
 }
 
-
-.wee {
-  margin-left: 8px
-}
+/* --- Header & Navigation Bar --- */
 
 .nav {
-  position: absolute;
-  z-index: 1;
-
-
+    /* Main navigation is now outside .yellowborder,
+       so use absolute/fixed positioning if desired, 
+       but removing the z-index conflict for now. */
+    position: relative; 
+    /* Removed redundant z-index: 1 */
 }
 
 .nav ul {
-  list-style: none;
-  background-color: #91c1d6;
-  text-align: center;
-  padding: 0;
-  margin-left:876px;
-  padding-top: 100px;
-  opacity: 0.9
-
+    list-style: none;
+    background-color: #91c1d6;
+    text-align: center;
+    padding: 0;
+    /* Removed fixed margin-left: 876px, which breaks responsiveness */
+    padding-top: 5px; /* Adjusting padding */
+    opacity: 0.9;
+    /* Use display: flex to keep all list items on one line (for desktop layout) */
+    display: flex; 
+    justify-content: center; /* Center the links */
 }
-.nav li {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2em;
-  line-height: 40px;
-  height: 80px;
-  border-bottom: 1px solid #888;
 
+.nav li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px; /* Reduced height for inline display */
+    border-bottom: 1px solid #888;
 }
 
 .nav a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  transition: .3s background-color;
-
-
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+    padding: 0 15px; /* Added horizontal padding for wider buttons */
 }
 
 .nav a:hover {
-  background-color: #005f5f;
+    background-color: #005f5f;
 }
 
-
-
-@media screen and (min-width: 600px) {
-  .nav li {
-    width: 120px;
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
-  }
-
-  /* Option 1 - Display Inline */
-  .nav li {
-    display: inline-block;
-    margin-right: -4px;
-  }
-
-
-
+/* --- Header Image (Banner) --- */
 
 .Header-top {
-  position: relative;
-  margin-top: 80px;
-  background-image: url('https://github.com/Zephireis/Inuyasha.nu-Website-Recreation/inyaheader.jpeg'); /* Replace with the actual path to your banner */
-  background-size: cover; /* This property will make the background image cover the entire container */
-  background-position: center; /* This property centers the background image */
-  height: 580px; /* Set the height to match the desired height of your banner */
+    position: relative;
+    /* The banner image is embedded in the HTML, so this background-image CSS is not used */
+    /* background-image: url('https://github.com/Zephireis/Inuyasha.nu-Website-Recreation/inyaheader.jpeg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    height: auto; /* Let the image size determine the height */
+    margin-top: 0; /* Align with the top of the .yellowborder's padding */
 }
-.loginmod {
-  position: absolute;
-  border-style: solid;
-  border-color: #e6e7e0;
-  border-width: 1px;
 
-  margin-top: 15px;
+/* --- Sidebar and Content Layout (Flexbox for easy layout) --- */
+
+/* This targets the new div wrapper added in the HTML fix */
+.sidebar-and-content {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap if not enough space */
+    margin-top: 20px;
+    z-index: 1; /* Ensure content is on top of the .homepage white background */
+}
+
+
+/* --- Login Panel (.loginmod) & ChatterBox (.Chat) - SIDEBAR ELEMENTS --- */
+
+.loginmod {
+    position: static; /* Changed from absolute to static/default */
+    flex-basis: 250px; /* Fixed width for the sidebar elements */
+    flex-shrink: 0;
+    border-style: solid;
+    border-color: #e6e7e0;
+    border-width: 1px;
+    margin-top: 0;
+    margin-right: 20px;
+    /* Added box-sizing to manage padding/border within the set width */
+    box-sizing: border-box; 
+    background-color: #f7f7f7; /* Light background for contrast */
 }
 
 .Loginlabel {
-  width: 200px;
-  background-color: #89c0d7;
-
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  padding: 5px 5px 5px 10px;
-  color: white;
-  font-weight: bold;
+    /* Use display: block for labels that need to take up a whole line */
+    display: block; 
+    width: auto; /* Let it take full width of parent minus margins */
+    background-color: #89c0d7;
+    margin: 5px;
+    padding: 5px 5px 5px 10px;
+    color: white;
+    font-weight: bold;
 }
 
-
 .Chat {
-  position: absolute;
-  border-style: solid;
-  border-color: #e6e7e0;
-  border-width: 1px;
-  margin-left: 1065px;
-  margin-top: 15px;
-  height: 400px;
+    position: static; /* Changed from absolute */
+    flex-basis: 250px; /* Fixed width, same as loginmod */
+    flex-shrink: 0;
+    border-style: solid;
+    border-color: #e6e7e0;
+    border-width: 1px;
+    margin-top: 15px;
+    /* Removed the hardcoded margin-left: 1065px */
+    height: 400px;
+    background-color: #f7f7f7;
 }
 
 .ChatterBox {
-  width: 200px;
-  background-color: #7c9d12;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  padding: 5px 5px 5px 10px;
-  color: white;
-  font-weight: bold;
-
+    display: block;
+    width: auto;
+    background-color: #7c9d12;
+    margin: 5px;
+    padding: 5px 5px 5px 10px;
+    color: white;
+    font-weight: bold;
 }
 
+.wee {
+    /* Apply display: block to inputs/labels for better stacking */
+    display: block; 
+    margin-left: 8px;
+    margin-bottom: 5px;
+}
+
+/* --- Blog/Main Content (.Blog) --- */
 
 .Blog {
-  position: relative;
-  margin-top: 80px;
-  text-align: left;
-  margin-left: 225px;
+    position: relative;
+    flex-grow: 1; /* Allows the blog content to take up the remaining space */
+    margin-top: 0;
+    margin-left: 0; /* Removed hardcoded margin-left: 225px */
+    text-align: left;
 }
 
 .middlep {
-  width:799px;
+    /* Use max-width instead of fixed width to respect flex layout */
+    max-width: 100%; 
+}
+
+.blogimgs {
+    width: 100%; /* Use 100% of the parent .Blog container */
+    height: auto;
+    /* text-align on the image itself does nothing, use it on the parent */
+    display: block; 
 }
 
 
+/* --- Media Query for Navigation (Desktop view) --- */
 
-
-.blogimgs{
-  width: 88%;
-  height: auto;
-  text-align: center;
+@media screen and (min-width: 600px) {
+    .nav li {
+        width: 120px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+        display: inline-block; /* Kept both inline-block rules */
+        margin-right: -4px;
+    }
 }
