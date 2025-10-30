@@ -7,12 +7,11 @@ body {
 /* --- Main Page Container --- */
 
 .yellowborder {
-    /* Use 'relative' positioning for the main container 
-       so absolute elements (like .homepage) are relative to it */
+    /* Use 'relative' positioning for the main container */
     position: relative;
-    width: 70%; /* Set a controlled width for the main content area */
-    min-height: 1200px; /* Use min-height instead of 100% padding */
-    margin-left: 15%; /* Center the block */
+    width: 70%; 
+    min-height: 1200px;
+    margin-left: 15%; 
     margin-right: 15%;
     margin-top: 50px;
     padding: 20px;
@@ -33,17 +32,21 @@ body {
     border-style: solid;
     border-color: #7c9d12;
     border-width: 5px;
-    z-index: 0; /* Ensures it stays behind all content */
+    z-index: 0; 
 }
 
-/* --- Header & Navigation Bar --- */
+/* --- Utility Class --- */
+
+.wee {
+    display: block; 
+    margin-left: 8px;
+    margin-bottom: 5px;
+}
+
+/* --- Navigation Bar --- */
 
 .nav {
-    /* Main navigation is now outside .yellowborder,
-       so use absolute/fixed positioning if desired, 
-       but removing the z-index conflict for now. */
     position: relative; 
-    /* Removed redundant z-index: 1 */
 }
 
 .nav ul {
@@ -51,19 +54,17 @@ body {
     background-color: #91c1d6;
     text-align: center;
     padding: 0;
-    /* Removed fixed margin-left: 876px, which breaks responsiveness */
-    padding-top: 5px; /* Adjusting padding */
+    padding-top: 5px;
     opacity: 0.9;
-    /* Use display: flex to keep all list items on one line (for desktop layout) */
     display: flex; 
-    justify-content: center; /* Center the links */
+    justify-content: center; 
 }
 
 .nav li {
     font-family: 'Oswald', sans-serif;
     font-size: 1.2em;
     line-height: 40px;
-    height: 40px; /* Reduced height for inline display */
+    height: 40px; 
     border-bottom: 1px solid #888;
 }
 
@@ -72,7 +73,7 @@ body {
     color: #fff;
     display: block;
     transition: .3s background-color;
-    padding: 0 15px; /* Added horizontal padding for wider buttons */
+    padding: 0 15px; 
 }
 
 .nav a:hover {
@@ -83,46 +84,48 @@ body {
 
 .Header-top {
     position: relative;
-    /* The banner image is embedded in the HTML, so this background-image CSS is not used */
-    /* background-image: url('https://github.com/Zephireis/Inuyasha.nu-Website-Recreation/inyaheader.jpeg'); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    height: auto; /* Let the image size determine the height */
-    margin-top: 0; /* Align with the top of the .yellowborder's padding */
+    height: auto; 
+    margin-top: 0; 
 }
 
-/* --- Sidebar and Content Layout (Flexbox for easy layout) --- */
+/* --- Sidebar and Content Layout (Flexbox container) --- */
 
-/* This targets the new div wrapper added in the HTML fix */
 .sidebar-and-content {
     position: relative;
     display: flex;
-    flex-wrap: wrap; /* Allows sections to wrap if not enough space */
+    flex-wrap: wrap; 
     margin-top: 20px;
-    z-index: 1; /* Ensure content is on top of the .homepage white background */
+    z-index: 1;
+}
+
+/* --- NEW: Sidebar Wrapper Column ---
+   This sets the width for the entire sidebar
+*/
+.sidebar-column {
+    flex-basis: 250px; /* Fixed width for the entire sidebar column */
+    flex-shrink: 0;
+    margin-right: 20px; /* Space between sidebar and main content */
+    display: flex;
+    flex-direction: column; /* Stacks children (.loginmod, .Chat) vertically */
 }
 
 
-/* --- Login Panel (.loginmod) & ChatterBox (.Chat) - SIDEBAR ELEMENTS --- */
+/* --- Login Panel (.loginmod) & ChatterBox (.Chat) - STACKED ELEMENTS --- */
 
 .loginmod {
-    position: static; /* Changed from absolute to static/default */
-    flex-basis: 250px; /* Fixed width for the sidebar elements */
-    flex-shrink: 0;
+    position: static; 
     border-style: solid;
     border-color: #e6e7e0;
     border-width: 1px;
     margin-top: 0;
-    margin-right: 20px;
-    /* Added box-sizing to manage padding/border within the set width */
+    margin-right: 0; /* Ensures it fills 100% of .sidebar-column */
     box-sizing: border-box; 
-    background-color: #f7f7f7; /* Light background for contrast */
+    background-color: #f7f7f7;
 }
 
 .Loginlabel {
-    /* Use display: block for labels that need to take up a whole line */
     display: block; 
-    width: auto; /* Let it take full width of parent minus margins */
+    width: auto; 
     background-color: #89c0d7;
     margin: 5px;
     padding: 5px 5px 5px 10px;
@@ -131,16 +134,15 @@ body {
 }
 
 .Chat {
-    position: static; /* Changed from absolute */
-    flex-basis: 250px; /* Fixed width, same as loginmod */
-    flex-shrink: 0;
+    position: static; 
     border-style: solid;
     border-color: #e6e7e0;
     border-width: 1px;
-    margin-top: 15px;
-    /* Removed the hardcoded margin-left: 1065px */
+    /* This margin now only controls vertical spacing between boxes */
+    margin-top: 15px; 
     height: 400px;
     background-color: #f7f7f7;
+    margin-right: 0; /* Ensures it fills 100% of .sidebar-column */
 }
 
 .ChatterBox {
@@ -153,12 +155,6 @@ body {
     font-weight: bold;
 }
 
-.wee {
-    /* Apply display: block to inputs/labels for better stacking */
-    display: block; 
-    margin-left: 8px;
-    margin-bottom: 5px;
-}
 
 /* --- Blog/Main Content (.Blog) --- */
 
@@ -166,19 +162,17 @@ body {
     position: relative;
     flex-grow: 1; /* Allows the blog content to take up the remaining space */
     margin-top: 0;
-    margin-left: 0; /* Removed hardcoded margin-left: 225px */
+    margin-left: 0;
     text-align: left;
 }
 
 .middlep {
-    /* Use max-width instead of fixed width to respect flex layout */
     max-width: 100%; 
 }
 
 .blogimgs {
-    width: 100%; /* Use 100% of the parent .Blog container */
+    width: 100%; 
     height: auto;
-    /* text-align on the image itself does nothing, use it on the parent */
     display: block; 
 }
 
@@ -192,7 +186,7 @@ body {
         height: 50px;
         line-height: 50px;
         font-size: 1.4em;
-        display: inline-block; /* Kept both inline-block rules */
+        display: inline-block; 
         margin-right: -4px;
     }
 }
